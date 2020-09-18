@@ -74,13 +74,22 @@ def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-
+  number = 1
+  names.each do |name|
+    puts "会員No.#{number}　#{name}さん"
+    number += 1
+  end
 end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
+    if foods.include?("うに")
+      　puts "好物です"
+    else
+        puts "まぁまぁ好きです"
+    end
 
 end
 
