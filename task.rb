@@ -148,9 +148,26 @@ end
 
 class UserQ17
   # 以下に回答を記載
+  #paramsで一括で受け取る
+  #ハッシュで取得
+  #<<~TEXT TEXTで一括表示
+
+  def initialize(params)
+    @info = params[:info]
+    @name = params[:name]
+    @age = params[:age]
+    @gender = params[:gender]
+  end
+
+  def info
+    puts <<~TEXT
+    名前：#{@name}
+    年齢：#{@age}
+    性別：#{@gender}
+    TEXT
+  end
 
 end
-
 def q17
   # ここは変更しないで下さい（ユーザー情報は変更していただいてOKです）
   user1 = UserQ17.new(name: "神里", age: 32, gender: "男")
@@ -163,7 +180,15 @@ end
 
 class UserQ18
   # 以下に回答を記載
+  def initialize(params)
+    @name = params[:name]
+    @age = params[:age]
+  end
 
+def introduce
+  @age === 32 ?  "こんにちは，#{@name}と申します。宜しくお願いいたします。" :
+  "はいさいまいど〜,#{@name}です！！！"
+  end
 end
 
 def q18
@@ -177,10 +202,10 @@ end
 
 class Item
   # 以下を修正して下さい
-
-  def initialize(name)
-    @name = name
+  def initialize(params)
+    @name = params[:name]
   end
+
 end
 
 def q19
@@ -191,11 +216,34 @@ end
 
 class UserQ20
   # 以下に回答を記載
-
+  def initialize(params)
+    @name = params[:name]
+    @age = params[:age]
+    @infant = params[:infant]
+    @children = params[:children]
+    @adult = params[:adult]
+    @senior = params[:senior]
+  end
 end
 
 class Zoo
   # 以下に回答を記載
+def initialize(params)
+  @infant = params[:infant]
+  @children = params[:children]
+  @adult = params[:adult]
+  @senior = params[:senior]
+end
+
+def info_entry_fee(user)
+  case age
+  when 0..5; 'infant'
+  when 6..12; 'children'
+  when 13..64; 'adult'
+  when 65..120; 'senior'
+
+puts "#{user.name}さんの入場料は{entry_fee}円です"
+end
 
 end
 
